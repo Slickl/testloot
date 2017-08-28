@@ -19,5 +19,10 @@ public class click : MonoBehaviour
             Debug.Log("I'm hitting " + hit.collider.name);
         }
     }
+
+    void AttackClicked()
+    {
+
+    }
 }
 
