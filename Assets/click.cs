@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class click : MonoBehaviour
 {
-    public Button b1;
+
    
 
     // Use this for initialization
     void Start()
     {
-        b1.enabled = true;
+
         
     }
 
@@ -19,15 +19,15 @@ public class click : MonoBehaviour
     void Update()
     {
         
-        b1.onClick.AddListener(isClicked);
+
     }
 
     // Button auf A wenn click dann attack
     public void isClicked()
     {
 
-        Application.UnloadLevel("battle");
         Application.LoadLevel("test");
+        Application.UnloadLevel("battle");
         Debug.Log("You have clicked the button!");
     }
 }
