@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class Controller : MonoBehaviour {
 
     public float speed;             //Floating point variable to store the player's movement speed.
@@ -12,13 +11,15 @@ public class Controller : MonoBehaviour {
     public BoxCollider2D wallT;
     public BoxCollider2D wallB;
 
+
     // Use this for initialization
     void Start()
     {
+        
 
         rb2d = GetComponent<Rigidbody2D>();
         box2d = GetComponent<BoxCollider2D>();
-        speed = 1;
+        speed = 100;
         
     }
 
@@ -47,7 +48,8 @@ public class Controller : MonoBehaviour {
             if (box2d.IsTouchingLayers() || box2d.IsTouching(wallB) || box2d.IsTouching(wallT) || box2d.IsTouching(wallR) || box2d.IsTouching(wallL) || !Input.anyKey)
             {
                 Stop();
-                movement = new Vector2(moveHorizontal * -1, moveVertical * -1);
+                
+             movement = new Vector2(moveHorizontal * -1, moveVertical * -1);
                 rb2d.AddForce(movement * 10);
             }
             else

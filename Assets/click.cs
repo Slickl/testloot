@@ -5,9 +5,12 @@ using System.Collections;
 public class click : MonoBehaviour
 {
 
+    FightCpu cpu;
+
+
     void Start()
     {
-
+        cpu = new FightCpu();
     }
 
     void Update()
@@ -17,11 +20,14 @@ public class click : MonoBehaviour
         if (hit != null && hit.collider != null && Input.GetButtonDown("Fire1"))
         {
             Debug.Log("I'm hitting " + hit.collider.name);
+            AttackClicked();
+            
         }
     }
 
-    void AttackClicked()
+    public void AttackClicked()
     {
+        cpu.AttackTrigger();
 
     }
 }
