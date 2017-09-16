@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO; 
 
 public class Player  {
 
     string name;
     int maxhp, maxint;
-    int cHp, cInt,att;
+    int cHp, cInt,att,points;
 
     public Player(string name)
     {
@@ -17,19 +18,27 @@ public class Player  {
         this.cHp = maxhp;
         this.cInt = maxint;
         this.att = 3;
+        this.points = 0;
 
 
     }
 
-    public Player(string[] stats)
+    public Player()
     {
+        string filename = @"D:\testloot.acc";
+
+        string[] stats = new string[10];
+
+        stats = File.ReadAllLines(filename);
 
         this.name = stats[0].ToString();
         this.maxhp = System.Int32.Parse(stats[1].ToString());
         this.cHp = System.Int32.Parse(stats[2].ToString());
         this.maxint = System.Int32.Parse(stats[3].ToString());
         this.cInt = System.Int32.Parse(stats[4].ToString()); 
-        this.att = System.Int32.Parse(stats[5].ToString()); 
+        this.att = System.Int32.Parse(stats[5].ToString());
+        this.points = System.Int32.Parse(stats[6].ToString());
+
 
 
     }
@@ -103,6 +112,15 @@ public class Player  {
     public int getCInt()
     {
         return this.cInt;
+    }
+    public int getPoints()
+    {
+        return this.points;
+    }
+
+    public void setPoints(int points)
+    {
+        this.points = points;
     }
     
 }

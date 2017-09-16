@@ -12,6 +12,9 @@ public class fight : MonoBehaviour {
     public Rigidbody2D rb2dEnemy;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
     public BoxCollider2D box2dEnemy;
 
+    public Rigidbody2D rb2dShop;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    public BoxCollider2D box2dShop;
+
 
     // Use this for initialization
     void Start () {
@@ -26,6 +29,11 @@ public class fight : MonoBehaviour {
             Application.UnloadLevel("test");
             Application.LoadLevel("battle");
         }
+        else if (box2d.IsTouching(box2dShop))
+        {
+            Application.UnloadLevel("test");
+            Application.LoadLevel("shop");
+        }
 
-	}
+    }
 }

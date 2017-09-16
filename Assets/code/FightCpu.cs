@@ -9,21 +9,10 @@ public class FightCpu {
 
     public FightCpu()
     {
-        string filename = @"D:\testloot.acc";
 
-        string[] stats = new string[10];
 
-        stats = File.ReadAllLines(filename);
-
-        if (stats[0] != "")
-        {
-            Player player = new Player();
-        }
-        else
-        {
-            Player player = new Player("testloot");
-        }
-        
+        Player player = new Player();
+     
         Enemy enemy = new Enemy("testhunt");
 
         this.enemy = enemy;
@@ -33,10 +22,14 @@ public class FightCpu {
 
     public void AttackTrigger()
     {
-        player.hit(enemy.getAtt() * -1);
-        enemy.hit(player.getAtt()* -1);
-        Debug.Log("player " + player.getCHp());
-        Debug.Log("Enemy " + enemy.getCHp());
+        while (player.getCHp() > 0 && enemy.getCHp() > 0 )
+        {
+            player.hit(enemy.getAtt() * -1);
+            enemy.hit(player.getAtt() * -1);
+            Debug.Log("player " + player.getCHp());
+            Debug.Log("Enemy " + enemy.getCHp());
+        }
+
 
         if (player.getCHp() <= 0)
         {
@@ -50,6 +43,7 @@ public class FightCpu {
         {
             Application.UnloadLevel("battle");
             Application.LoadLevel("test");
+            player.setPoints(player.getPoints() + 1);
 
             using (StreamWriter writer =
           new StreamWriter(@"D:\" +player.getName() + ".acc"))
@@ -60,6 +54,7 @@ public class FightCpu {
                 writer.WriteLine(player.getMaxInt());
                 writer.WriteLine(player.getCInt());
                 writer.WriteLine(player.getAtt());
+                writer.WriteLine(player.getPoints());
             }
         }
         {
