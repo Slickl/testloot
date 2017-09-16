@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mainmenu : MonoBehaviour
+public class shop : MonoBehaviour
 {
 
     // Use this for initialization
