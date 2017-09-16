@@ -10,7 +10,7 @@ public class click : MonoBehaviour
 
     void Start()
     {
-        cpu = new FightCpu();
+       
     }
 
     void Update()
@@ -27,7 +27,11 @@ public class click : MonoBehaviour
 
     public void AttackClicked()
     {
+        cpu = new FightCpu();
         cpu.AttackTrigger();
+
+
+
 
     }
 }

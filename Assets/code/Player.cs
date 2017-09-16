@@ -15,7 +15,21 @@ public class Player  {
         this.maxhp = 10;
         this.maxint = 10;
         this.cHp = maxhp;
+        this.cInt = maxint;
         this.att = 3;
+
+
+    }
+
+    public Player(string[] stats)
+    {
+
+        this.name = stats[0].ToString();
+        this.maxhp = System.Int32.Parse(stats[1].ToString());
+        this.cHp = System.Int32.Parse(stats[2].ToString());
+        this.maxint = System.Int32.Parse(stats[3].ToString());
+        this.cInt = System.Int32.Parse(stats[4].ToString()); 
+        this.att = System.Int32.Parse(stats[5].ToString()); 
 
 
     }
@@ -71,4 +85,24 @@ public class Player  {
     {
         return this.att;
     }
+
+    public string getName()
+    {
+        return this.name;
+    }
+
+    public int getMaxHp()
+    {
+        return this.maxhp;
+    }
+
+    public int getMaxInt()
+    {
+        return this.maxint;
+    }
+    public int getCInt()
+    {
+        return this.cInt;
+    }
+    
 }
